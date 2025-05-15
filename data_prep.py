@@ -13,8 +13,8 @@ REQUIRED = [
 FEATURES = ['PTS', 'AST', 'REB', 'STL', 'BLK', 'TOV', 'GP', 'Min']
 TARGET = 'FP'
 
-def load_stats(path="nba_stats.tsv"):
-    df = pd.read_csv(path, sep='\t')
+def load_stats(path="nba_stats.csv"):
+    df = pd.read_csv(path)
     logging.info(f"Loaded {len(df)} rows from {path}")
     
     # Ensure necessary columns exist
