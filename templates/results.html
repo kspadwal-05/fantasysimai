@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Simulation Results</h2>
+<div class="card mb-3">
+  <div class="card-body">
+    <h5 class="card-title">Projected Fantasy Points</h5>
+    <ul class="list-group">
+      <li class="list-group-item">Mean: {{ summary.mean }}</li>
+      <li class="list-group-item">5th Percentile: {{ summary["5th"] }}</li>
+      <li class="list-group-item">95th Percentile: {{ summary["95th"] }}</li>
+    </ul>
+  </div>
+</div>
+
+<h3>Optimal Lineup (Under Salary Cap)</h3>
+<ul class="list-group">
+  {% for p in picks %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ player_map[p] }}
+    <span class="badge bg-primary">${{ salary_map[p] }}</span>
+  </li>
+  {% endfor %}
+</ul>
+<a href="/" class="btn btn-secondary mt-4">← Try Again</a>
+{% endblock %}
